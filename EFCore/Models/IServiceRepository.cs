@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace EFCore.Models
 {
-
     public interface IServiceRepository
     {
         public IQueryable<Team> Teams { get; }

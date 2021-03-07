@@ -15,7 +15,7 @@ namespace EFCore.Tests
         private IServiceRepository GetInMemoryRepository()
         {
             var options = new DbContextOptionsBuilder<ServiceContext>()
-                             .UseInMemoryDatabase(databaseName: "MockDB")
+                             .UseInMemoryDatabase(databaseName: "EFCoreDemo")
                              .Options;
 
             var context = new ServiceContext(options);
@@ -28,7 +28,8 @@ namespace EFCore.Tests
         [TestInitialize]
         public void Setup()
         {
-            _repository = GetInMemoryRepository();// new Mocks.MockRepository();
+            _repository = GetInMemoryRepository();
+            //new Mocks.MockRepository();
             _controller = new HomeController(_repository);
         }
 
@@ -38,10 +39,10 @@ namespace EFCore.Tests
             _controller.Create();
 
             Assert.AreEqual(1, _repository.TeamMembers.Count());
-            Assert.AreEqual("Jakub", _repository.TeamMembers.First().Team.Name);
+            Assert.AreEqual("Kappa", _repository.TeamMembers.First().Team.Name);
             Assert.AreEqual(1, _repository.Teams.Count());
-            Assert.AreEqual("Kappa", _repository.Teams.First().TeamMembers.First().FirstName);
-
+            Assert.AreEqual("Jakub", _repository.Teams.First().TeamMembers.First().FirstName);
+            Assert.AreEqual("Maj", _repository.Teams.First().TeamMembers.First().LastName);
         }
     }
 }

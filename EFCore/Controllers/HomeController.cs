@@ -30,7 +30,7 @@ namespace EFCore.Controllers
         {
             var kappa = new Team { Name = "Kappa" };
 
-            var maju = new TeamMember { FirstName = "Jakub", LastName = "Maj", Team = kappa, Title = 0 };
+            var maju = new TeamMember { FirstName = "Bogdan", LastName = "Smalec", Team = kappa, Title = (Title)1 };
 
             _repository.Add(maju);
 
